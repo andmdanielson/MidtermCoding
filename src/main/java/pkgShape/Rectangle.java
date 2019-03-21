@@ -40,7 +40,7 @@ public class Rectangle extends Shape{
 		return this.iLength*this.iWidth;		
 	}
 	
-	public double perimeter() {
+	public double perimeter() throws Exception{
 		
 		return (2*this.iWidth)+(2*this.iLength);
 	}

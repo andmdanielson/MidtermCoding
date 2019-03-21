@@ -1,5 +1,7 @@
 package pkgShape;
 
+import java.util.Comparator;
+
 public class Cuboid extends Rectangle{
 	
 	private int iDepth;
@@ -28,6 +30,56 @@ public class Cuboid extends Rectangle{
 	public double volume() {
 		
 		return getiWidth()*getiLength()*this.iDepth;
+	}
+	
+	@Override
+	public double area() {
+		int length=getiLength();
+		int width=getiWidth();
+		int depth=this.iDepth;
+		
+		int surface_area=2*(length*width)+2*(length*depth)+2*(depth*width);
+		
+		return surface_area;
+	}
+	
+	@Override
+	public double perimeter() throws Exception{
+		
+		throw new UnsupportedOperationException();
+		
+	}
+	
+	public int compareTo(Cuboid cube) {
+		
+		int cube_1_vol=(int) this.volume();
+		int cube_2_vol=(int) cube.volume();
+		
+		return cube_1_vol-cube_2_vol;
+		
+	}
+	
+	public class SortByArea implements Comparator<Cuboid>{
+		
+		SortByArea() {
+			super();
+		}
+		
+		public int compare(Cuboid one, Cuboid two) {
+			return (int) (one.area()-two.area());
+		}
+	}
+	
+	public class SortByVolume implements Comparator<Cuboid>{
+		
+		SortByVolume() {
+			super();
+		}
+		
+		public int compare(Cuboid one, Cuboid two) {
+			return (int) (one.volume()-two.volume());
+		}
+		
 	}
 
 }
