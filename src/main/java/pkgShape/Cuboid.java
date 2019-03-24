@@ -2,7 +2,7 @@ package pkgShape;
 
 import java.util.Comparator;
 
-public class Cuboid extends Rectangle{
+public class Cuboid extends Rectangle implements Comparable{
 	
 	private int iDepth;
 	
@@ -50,7 +50,10 @@ public class Cuboid extends Rectangle{
 		
 	}
 	
-	public int compareTo(Cuboid cube) {
+	@Override
+	public int compareTo(Object obj) {
+		
+		Cuboid cube=(Cuboid) obj;
 		
 		int cube_1_vol=(int) this.volume();
 		int cube_2_vol=(int) cube.volume();
@@ -72,8 +75,8 @@ public class Cuboid extends Rectangle{
 	
 	public class SortByVolume implements Comparator<Cuboid>{
 		
-		SortByVolume() {
-			super();
+		SortByVolume(){
+			
 		}
 		
 		public int compare(Cuboid one, Cuboid two) {
@@ -83,3 +86,7 @@ public class Cuboid extends Rectangle{
 	}
 
 }
+
+
+
+

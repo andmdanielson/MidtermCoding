@@ -2,6 +2,9 @@ package pkgShape;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import org.junit.Test;
 
 public class RectangleTest {
@@ -63,6 +66,47 @@ public class RectangleTest {
 	public void perimeter_Test() throws Exception {
 		Rectangle rec=new Rectangle(5,7);
 		assertTrue(rec.perimeter()==24);
+	}
+	
+	@Test
+	public void compareTo_test() throws Exception {
+		ArrayList<Rectangle> rec=new ArrayList<Rectangle>();
+		ArrayList<Rectangle> sort=new ArrayList<Rectangle>();
+		
+		Rectangle a=new Rectangle(4,2);
+		Rectangle b=new Rectangle(2,6);
+		Rectangle c=new Rectangle(7,4);
+		Rectangle d=new Rectangle(5,8);
+		
+		rec.add(b);
+		rec.add(d);
+		rec.add(a);
+		rec.add(c);
+		
+		for (Rectangle r: rec)
+		{
+			System.out.println(r.area());
+		}
+		
+		System.out.println("*****************************************");
+		
+		sort.add(a);
+		sort.add(b);
+		sort.add(c);
+		sort.add(d);
+		
+		Collections.sort(rec);
+		
+		for (Rectangle r: rec)
+		{
+			System.out.println(r.area());
+		}
+		
+		System.out.println("*****************************************");
+		
+		assertEquals(rec,sort);
+		
+		
 	}
 
 }

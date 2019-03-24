@@ -1,6 +1,6 @@
 package pkgShape;
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape implements Comparable{
 	
 	private int iWidth;
 	
@@ -45,7 +45,10 @@ public class Rectangle extends Shape{
 		return (2*this.iWidth)+(2*this.iLength);
 	}
 	
-	public int compareTo(Rectangle rec) {
+	@Override
+	public int compareTo(Object obj) {
+		
+		Rectangle rec=(Rectangle) obj;
 		
 		int rec_1_area=(int) this.area();
 		
