@@ -16,17 +16,9 @@ public class RectangleTest {
 		
 	}
 	
-	@Test 
-	public void Rectangle_Test2(){
-		boolean except=false;
-		try {
-			Rectangle rec=new Rectangle(6,-5);
-		} catch (IllegalArgumentException e) {
-			except=true;
-		} catch(Exception E) {
-			except=false;
-		}
-		assertTrue(except);
+	@Test (expected=IllegalArgumentException.class)
+	public void Rectangle_Test2() throws Exception{
+		Rectangle rec=new Rectangle(6,-5);
 	}
 	
 	@Test
@@ -83,8 +75,15 @@ public class RectangleTest {
 		rec.add(a);
 		rec.add(c);
 		
-		for (Rectangle r: rec)
-		{
+		for (Rectangle r: rec){
+			System.out.println(r.area());
+		}
+		
+		System.out.println("*****************************************");
+		
+		Collections.sort(rec);
+		
+		for (Rectangle r: rec){
 			System.out.println(r.area());
 		}
 		
@@ -94,15 +93,6 @@ public class RectangleTest {
 		sort.add(b);
 		sort.add(c);
 		sort.add(d);
-		
-		Collections.sort(rec);
-		
-		for (Rectangle r: rec)
-		{
-			System.out.println(r.area());
-		}
-		
-		System.out.println("*****************************************");
 		
 		assertEquals(rec,sort);
 		

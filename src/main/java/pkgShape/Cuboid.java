@@ -76,7 +76,7 @@ public class Cuboid extends Rectangle implements Comparable{
 	public class SortByVolume implements Comparator<Cuboid>{
 		
 		SortByVolume(){
-			
+			super();
 		}
 		
 		public int compare(Cuboid one, Cuboid two) {

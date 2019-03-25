@@ -27,28 +27,20 @@ public class CuboidTest {
 	}
 	
 	@Test 
-	public void setiDepth_test() {
-		int depth;
-		try {
-			Cuboid prism=new Cuboid(5,4,8);
-			prism.setiDepth(2);
-			depth=prism.getiDepth();
-		} catch(Exception e) {
-			depth=-5;
-		}
+	public void setiDepth_test() throws Exception {
+		Cuboid prism=new Cuboid(5,4,8);
+		prism.setiDepth(2);
+		int depth=prism.getiDepth();
 		
 		assertTrue(depth==2);
 	}
 	
 	@Test 
-	public void getiDepth_test() {
-		int depth;
-		try {
-			Cuboid prism=new Cuboid(5,4,8);
-			depth=prism.getiDepth();
-		} catch(Exception e) {
-			depth=-5;
-		}
+	public void getiDepth_test() throws Exception {
+		
+		Cuboid prism=new Cuboid(5,4,8);
+		int depth=prism.getiDepth();
+		
 		
 		assertTrue(depth==8);
 	}
@@ -88,8 +80,15 @@ public class CuboidTest {
 		prisms.add(a);
 		prisms.add(c);
 		
-		for (Cuboid p: prisms)
-		{
+		for (Cuboid p: prisms){
+			System.out.println(p.volume());
+		}
+		
+		System.out.println("*****************************************");
+		
+		Collections.sort(prisms, a.new SortByVolume());
+		
+		for (Cuboid p: prisms){
 			System.out.println(p.volume());
 		}
 		
@@ -99,15 +98,6 @@ public class CuboidTest {
 		sorted.add(b);
 		sorted.add(c);
 		sorted.add(d);
-		
-		Collections.sort(prisms, a.new SortByVolume());
-		
-		for (Cuboid p: prisms)
-		{
-			System.out.println(p.volume());
-		}
-		
-		System.out.println("*****************************************");
 		
 		assertEquals(prisms,sorted);
 	}
@@ -129,8 +119,15 @@ public class CuboidTest {
 		prisms.add(a);
 		prisms.add(c);
 		
-		for (Cuboid p: prisms)
-		{
+		for (Cuboid p: prisms){
+			System.out.println(p.area());
+		}
+		
+		System.out.println("*****************************************");
+		
+		Collections.sort(prisms, a.new SortByArea());
+		
+		for (Cuboid p: prisms){
 			System.out.println(p.area());
 		}
 		
@@ -140,15 +137,6 @@ public class CuboidTest {
 		sorted.add(b);
 		sorted.add(c);
 		sorted.add(d);
-		
-		Collections.sort(prisms, a.new SortByArea());
-		
-		for (Cuboid p: prisms)
-		{
-			System.out.println(p.area());
-		}
-		
-		System.out.println("*****************************************");
 		
 		assertEquals(prisms,sorted);
 	}
